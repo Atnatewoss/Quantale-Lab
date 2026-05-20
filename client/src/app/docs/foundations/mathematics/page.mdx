@@ -1,0 +1,188 @@
+---
+title: "Mathematical Foundation"
+description: "The core abstract algebra that powers the system."
+icon: "Binary"
+order: 2
+---
+
+# Mathematical Foundation
+
+The **Quantale Chess Lab** is an interactive educational reference platform. It uses chess skill levels as a visual hierarchy to teach advanced algebraic concepts progressively.
+
+This page teaches the following foundational structures visually:
+1. **Posets** (Partially Ordered Sets)
+2. **Lattices** (Infimum and Supremum)
+3. **Complete Lattices** (Arbitrary ceilings and floors)
+4. **Monoids** (Composition laws)
+5. **Quantales** (Distributivity over joins)
+6. **Residuation** (Galois Connection bounds)
+
+---
+
+## The Chess Hierarchy Lattice
+
+Instead of arbitrary abstract sets, we map these algebraic operations onto the set of strictly ordered chess ranks. This forms a complete lattice where **Beginner** acts as the absolute lower bound (bottom) and **Grandmaster** acts as the absolute upper bound (top).
+
+<div className="docs-diagram-panel flex flex-col items-center justify-center my-8 p-6 max-w-sm mx-auto backdrop-blur-md">
+  <div className="docs-diagram-label text-[10px] font-extrabold uppercase tracking-widest mb-6 font-mono">Chess Lattice Ordering Relation</div>
+  
+  <div className="flex flex-col items-center w-full">
+    {/* Grandmaster */}
+    <div className="flex items-center gap-3 px-4 py-2 bg-pink-500/10 border border-pink-500/30 rounded-xl text-pink-400 font-mono text-xs w-48 justify-center shadow-lg shadow-pink-500/5">
+      <span>Grandmaster (⊤ - Top)</span>
+    </div>
+    
+    <div className="docs-diagram-arrow text-base my-1 font-mono">↓</div>
+    
+    {/* Master */}
+    <div className="flex items-center gap-3 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-xl text-purple-400 font-mono text-xs w-48 justify-center shadow-lg shadow-purple-500/5">
+      <span>Master</span>
+    </div>
+    
+    <div className="docs-diagram-arrow text-base my-1 font-mono">↓</div>
+    
+    {/* Advanced */}
+    <div className="flex items-center gap-3 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-xl text-blue-400 font-mono text-xs w-48 justify-center shadow-lg shadow-blue-500/5">
+      <span>Advanced</span>
+    </div>
+    
+    <div className="docs-diagram-arrow text-base my-1 font-mono">↓</div>
+    
+    {/* Intermediate */}
+    <div className="flex items-center gap-3 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 font-mono text-xs w-48 justify-center shadow-lg shadow-emerald-500/5">
+      <span>Intermediate</span>
+    </div>
+    
+    <div className="docs-diagram-arrow text-base my-1 font-mono">↓</div>
+    
+    {/* Beginner */}
+    <div className="flex items-center gap-3 px-4 py-2 bg-slate-500/10 border border-slate-500/30 rounded-xl text-slate-400 font-mono text-xs w-48 justify-center shadow-lg shadow-slate-500/5">
+      <span>Beginner (⊥ - Bottom)</span>
+    </div>
+  </div>
+</div>
+
+---
+
+## 1. Partially Ordered Sets (Posets)
+
+A **Partially Ordered Set (Poset)** is a set equipped with a binary ordering relation (≤) that establishes a structured hierarchy. 
+
+### Visual Intuition
+Think of skill levels in chess. If player A is a **Grandmaster** and player B is a **Beginner**, there is a clear, irreversible order of skill: B ≤ A. 
+
+<details>
+<summary><b>View Formal Mathematical Proof</b></summary>
+
+A relation ≤ on a set Q is a partial order if it satisfies three axioms for all a, b, c in Q:
+1. **Reflexivity**: a ≤ a (every skill level is at least equal to itself).
+2. **Antisymmetry**: If a ≤ b and b ≤ a, then a = b (two ranks cannot be strictly greater than each other without being the exact same rank).
+3. **Transitivity**: If a ≤ b and b ≤ c, then a ≤ c (if a Beginner is weaker than an Intermediate, and an Intermediate is weaker than a Master, then a Beginner is weaker than a Master).
+
+In our system, the set of ranks is defined as:
+`Q = ["Beginner", "Intermediate", "Advanced", "Master", "Grandmaster"]`
+</details>
+
+---
+
+## 2. Lattices (Meets & Joins)
+
+A **Lattice** is a poset where any two elements possess a unique **greatest lower bound** and a **least upper bound**.
+
+### Visual Intuition
+* **Lattice Meet (∧)**: Represents the **weakest common floor** (the capability ceiling of the weaker participant). When two players collaborate under high-sensitivity constraints, their shared operational capability collapses to the weaker player's skill level.
+  * Advanced ∧ Beginner = Beginner
+* **Lattice Join (∨)**: Represents the **strongest common ceiling** (the upper limit of their combined knowledge).
+  * Intermediate ∨ Master = Master
+
+<details>
+<summary><b>View Formal Mathematical Definition</b></summary>
+
+For any elements a, b in Q:
+* The **Meet (Infimum)** is the greatest element x in Q such that x ≤ a and x ≤ b:
+  a ∧ b = min(a, b)
+* The **Join (Supremum)** is the least element y in Q such that a ≤ y and b ≤ y:
+  a ∨ b = max(a, b)
+</details>
+
+---
+
+## 3. Complete Lattices
+
+A lattice is **Complete** if every possible subset of elements has a well-defined infimum and supremum.
+
+### Visual Intuition
+Whether you pair two players, five players, or an empty team together, the system always guarantees a valid capability limit. The empty team collapses to the **Beginner** floor (bottom), and the absolute supreme capability remains capped at **Grandmaster** (top).
+
+<details>
+<summary><b>View Formal Mathematical Definition</b></summary>
+
+A lattice Q is complete if for any subset S of Q, both the arbitrary join (⋁ S) and the arbitrary meet (⋀ S) exist in Q. 
+This guarantees the existence of:
+* The least element: bottom = ⋀ Q (Beginner)
+* The greatest element: top = ⋁ Q (Grandmaster)
+</details>
+
+---
+
+## 4. Monoids & Composition Laws
+
+A **Monoid** introduces an associative capability composition operator (⊗) that models active skill interaction between players, along with an identity element that does not alter the pairing outcome.
+
+### Visual Intuition
+When two players interact, they compose their skills:
+* Advanced ⊗ Beginner = Beginner
+* **Explanation**: The weaker participant constrains the interaction outcome. The master player cannot bypass the beginner's failure to handle complex tactical responses.
+* **Identity**: The **Grandmaster** rank serves as the identity element (top). Pairing with a Grandmaster simply reflects your own skill capability level:
+  * Advanced ⊗ Grandmaster = Advanced
+
+<details>
+<summary><b>View Formal Mathematical Definition</b></summary>
+
+A monoid is a set Q equipped with a binary operation ⊗ (composition) that satisfies:
+1. **Associativity**: (a ⊗ b) ⊗ c = a ⊗ (b ⊗ c)
+2. **Identity Element**: a ⊗ top = top ⊗ a = a (in our system, the identity is the Top element top).
+</details>
+
+---
+
+## 5. Quantales
+
+A **Quantale** combines complete lattices and monoid operations. It guarantees that skill composition distributes perfectly over arbitrary joins.
+
+### Visual Intuition
+Evaluating a player's interaction against the maximum capacity of two other players is identical to evaluating their interactions individually and taking the maximum of the results:
+a ⊗ (b ∨ c) = (a ⊗ b) ∨ (a ⊗ c)
+
+<details>
+<summary><b>View Formal Mathematical Definition</b></summary>
+
+A quantale is a complete lattice Q equipped with an associative binary operation ⊗ that distributes over arbitrary joins:
+a ⊗ (⋁ b_i) = ⋁ (a ⊗ b_i)
+(⋁ a_i) ⊗ b = ⋁ (a_i ⊗ b)
+</details>
+
+---
+
+## 6. Residuation & Galois Connections
+
+A quantale is **residuated** when we can solve algebraic inequalities using a division-like implication operator (→), establishing required bounds for player matchmaking.
+
+### Visual Intuition
+* **The Question**: If player A is an **Advanced** rank, what is the maximum rank player B can have so that their combined composition (A ⊗ B) does not exceed target limit C (**Intermediate**)?
+* **The Answer**: Using the residuated implication (A → C), we can compute the maximum matching partner:
+  Advanced → Intermediate = Intermediate
+
+<details>
+<summary><b>View Formal Mathematical Proof</b></summary>
+
+A commutative quantale is residuated if there exists an implication operator → satisfying the **Adjunction (Galois Connection)**:
+a ⊗ b ≤ c  holds if and only if  b ≤ a → c
+
+This unique residual is computed as:
+`a → c = sup( b in Q | a ⊗ b ≤ c )`
+
+Since our monoidal composition ⊗ acts as the lattice meet (∧), the Galois connection is strictly evaluated as:
+* a → c = top (if a ≤ c)
+* a → c = c (if a > c)
+</details>
