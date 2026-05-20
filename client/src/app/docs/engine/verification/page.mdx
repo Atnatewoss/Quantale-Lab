@@ -1,0 +1,26 @@
+---
+title: "Verification Engine"
+description: "How the exhaustive algebraic axiom tests work."
+icon: "ShieldCheck"
+order: 5
+---
+
+# Verification Engine
+
+The backend exhaustively verifies the axioms for all elements in the set:
+
+### Associativity
+Proves that composition order does not affect the outcome:
+$$(a ⊗ b) ⊗ c = a ⊗ (b ⊗ c)$$
+
+### Distributivity
+Proves that composition distributes over join:
+$$a ⊗ (b ∨ c) = (a ⊗ b) ∨ (a ⊗ c)$$
+
+### Adjunction (Galois Connection)
+Proves the bedrock residuated relationship:
+$$a ⊗ b ≤ c \iff b ≤ a → c$$
+
+### Residual Correctness
+Proves that the computed residual is the absolute supremum of the set:
+$$a → c = ⋁ ( x ∈ Q \mid a ⊗ x ≤ c )$$

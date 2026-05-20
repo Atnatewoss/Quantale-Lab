@@ -1,0 +1,9 @@
+{
+  "title": "Computational Engine",
+  "defaultOpen": true,
+  "pages": [
+    "chess-model",
+    "query-engine",
+    "verification"
+  ]
+}

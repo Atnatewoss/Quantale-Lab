@@ -1,0 +1,27 @@
+---
+title: "Query Engine"
+description: "Exploring the fundamental relations and operators."
+icon: "Search"
+order: 4
+---
+
+# Query Engine
+
+The query engine handles the fundamental relation and operations:
+
+### `le(a, b)`
+Evaluates whether skill a is less than or equal to b in the partial order.
+* **Example**: `le(intermediate, master)` returns `True`.
+* **Example**: `le(grandmaster, beginner)` returns `False`.
+
+### `big_join(S)`
+Computes the supremum (least upper bound) of a subset of elements S.
+* **Example**: `big_join([beginner, intermediate, advanced])` returns `advanced`.
+
+### `a → c` (Residual / Implication)
+Computes the maximum skill level b such that a ⊗ b ≤ c. This answers: *"What is the strongest partner player a can team up with without exceeding match quality c?"*
+* **Example**: `intermediate → beginner`
+  We want the largest b such that intermediate ⊗ b ≤ beginner.
+  Since intermediate ⊗ grandmaster = intermediate ≰ beginner, but intermediate ⊗ beginner = beginner ≤ beginner, the maximum element is **`beginner`**.
+* **Example**: `beginner → intermediate`
+  Since beginner ⊗ b = beginner ≤ intermediate for **any** element b, the maximum element is **`grandmaster`**.

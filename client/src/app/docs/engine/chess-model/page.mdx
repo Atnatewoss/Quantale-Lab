@@ -1,0 +1,21 @@
+---
+title: "Chess Model"
+description: "How chess skills are modeled as a completely ordered quantale."
+icon: "Award"
+order: 3
+---
+
+# Chess Model
+
+The engine operates on a finite set of 5 skill elements:
+$$beginner ≺ intermediate ≺ advanced ≺ master ≺ grandmaster$$
+
+### Interaction Rules
+* **Skill Composition (⊗)**: When two players play together, the overall quality/complexity of the game is bounded by the weaker player (modeled as the infimum/meet).
+* **Weaker Skill Dominates**: If a `beginner` pairs with a `grandmaster`, the game quality naturally drops to a `beginner` standard. Hence:
+$$beginner ⊗ grandmaster = beginner$$
+
+### Identity Element
+The identity element e is **`grandmaster`**. 
+Pairing any skill level with a `grandmaster` preserves that skill level:
+$$master ⊗ grandmaster = master$$
