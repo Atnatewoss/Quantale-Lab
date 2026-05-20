@@ -43,12 +43,8 @@ export default function LandingPage() {
       {/* Left Column - Top Logo + Hero with Grainy Gradient */}
       <div className="w-full lg:w-1/2 flex flex-col border-b lg:border-b-0 lg:border-r border-[#222222] h-full bg-black relative z-20">
         
-        {/* Grainy Gradient Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#1c1c1c_0%,_#000000_100%)] pointer-events-none" />
-        <div 
-          className="absolute inset-0 opacity-[0.25] mix-blend-overlay pointer-events-none" 
-          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} 
-        />
+        {/* Smooth Spotlight Gradient Background */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1a1a1a] blur-[150px] rounded-full pointer-events-none" />
 
         
         {/* Top Left Logo Area */}
@@ -60,7 +56,7 @@ export default function LandingPage() {
         </div>
 
         {/* Hero Content Container */}
-        <div className="flex-1 flex flex-col justify-between overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-black [&::-webkit-scrollbar-thumb]:bg-[#050505] hover:[&::-webkit-scrollbar-thumb]:bg-[#111]">
+        <div className="relative z-10 flex-1 flex flex-col justify-between overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-black [&::-webkit-scrollbar-thumb]:bg-[#050505] hover:[&::-webkit-scrollbar-thumb]:bg-[#111]">
           
           <div className="p-8 md:p-16 lg:p-20 mt-auto mb-auto">
             <div className="inline-flex items-center gap-2 text-[11px] text-[#888888] mb-8 border border-[#333333] rounded-full px-3 py-1 hover:text-white hover:border-[#555555] transition-all cursor-default bg-black/30 backdrop-blur-sm">
