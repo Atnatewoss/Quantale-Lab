@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Copy, Terminal } from 'lucide-react';
+import { ArrowRight, Copy } from 'lucide-react';
 
 const FEATURES = [
   {
@@ -58,9 +58,6 @@ export default function LandingPage() {
           <Link href="/demo" className="hover:text-white px-6 h-16 flex items-center border-b-2 border-transparent hover:border-[#444444] transition-colors">
             ARENA
           </Link>
-          <Link href="/docs/tools/api-docs" className="hover:text-white px-6 h-16 flex items-center border-b-2 border-transparent hover:border-[#444444] transition-colors">
-            API
-          </Link>
         </div>
 
         <Link href="/demo" className="bg-white text-black text-[11px] font-bold tracking-widest px-4 py-2 hover:bg-[#dddddd] transition-colors flex items-center gap-2">
@@ -71,47 +68,8 @@ export default function LandingPage() {
       {/* Main Grid */}
       <main className="flex-1 grid grid-cols-1 lg:grid-cols-2">
         
-        {/* Left Column - Hero */}
-        <div className="flex flex-col justify-between p-8 md:p-16 lg:p-20 border-b lg:border-b-0 lg:border-r border-[#222222] relative">
-          
-          {/* Subtle background texture for left side */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-
-          <div className="relative z-10 mt-12 lg:mt-24">
-            <div className="inline-flex items-center gap-2 text-[11px] text-[#888888] mb-8 border border-[#333333] rounded-full px-3 py-1 hover:text-white hover:border-[#555555] transition-all cursor-default">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              Introducing | The Algebraic Skill Protocol <ArrowRight className="w-3 h-3" />
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.05] mb-12">
-              The most comprehensive <br className="hidden md:block" /> interaction theorem <br className="hidden md:block" /> framework
-            </h1>
-
-            <div className="flex items-center gap-4">
-              <Link href="/docs/foundations/introduction" className="bg-white text-black px-6 py-3 text-sm font-medium hover:bg-[#dddddd] transition-colors">
-                Get Started
-              </Link>
-              <Link href="/docs/foundations/mathematics" className="border border-[#333333] text-white px-6 py-3 text-sm font-medium hover:bg-[#111111] transition-colors">
-                Read the Math
-              </Link>
-            </div>
-          </div>
-
-          {/* Left Footer Links */}
-          <div className="relative z-10 flex items-center gap-6 text-[11px] font-mono text-[#666666] uppercase mt-32 lg:mt-0">
-            <Link href="/docs/foundations/introduction" className="hover:text-white transition-colors">Mathematics</Link>
-            <span className="text-[#333333]">/</span>
-            <Link href="/docs/engine/query-engine" className="hover:text-white transition-colors">Engine</Link>
-            <span className="text-[#333333]">/</span>
-            <Link href="/demo" className="hover:text-white transition-colors">Demo</Link>
-            <div className="ml-auto flex items-center gap-4">
-              <Link href="https://github.com" target="_blank" className="hover:text-white cursor-pointer transition-colors">GITHUB</Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column - Content */}
-        <div className="flex flex-col">
+        {/* Left Column - Content (Swapped from right) */}
+        <div className="flex flex-col border-b lg:border-b-0 lg:border-r border-[#222222]">
           
           {/* README Section */}
           <div className="p-8 md:p-12 border-b border-[#222222]">
@@ -155,6 +113,45 @@ export default function LandingPage() {
             
           </div>
 
+        </div>
+
+        {/* Right Column - Hero (Swapped from left) */}
+        <div className="flex flex-col justify-between p-8 md:p-16 lg:p-20 relative">
+          
+          {/* Subtle background texture for right side */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+
+          <div className="relative z-10 mt-12 lg:mt-24">
+            <div className="inline-flex items-center gap-2 text-[11px] text-[#888888] mb-8 border border-[#333333] rounded-full px-3 py-1 hover:text-white hover:border-[#555555] transition-all cursor-default">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              Introducing | The Algebraic Skill Protocol <ArrowRight className="w-3 h-3" />
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.05] mb-10">
+              Mathematical interactions <br className="hidden lg:block" /> for bounded state <br className="hidden lg:block" /> resolution
+            </h1>
+
+            <div className="flex items-center gap-4">
+              <Link href="/docs/foundations/introduction" className="bg-white text-black px-6 py-3 text-sm font-medium hover:bg-[#dddddd] transition-colors">
+                Get Started
+              </Link>
+              <Link href="/docs/foundations/mathematics" className="border border-[#333333] text-white px-6 py-3 text-sm font-medium hover:bg-[#111111] transition-colors">
+                Read the Math
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Footer Links */}
+          <div className="relative z-10 flex items-center gap-6 text-[11px] font-mono text-[#666666] uppercase mt-32 lg:mt-0">
+            <Link href="/docs/foundations/introduction" className="hover:text-white transition-colors">Mathematics</Link>
+            <span className="text-[#333333]">/</span>
+            <Link href="/docs/engine/query-engine" className="hover:text-white transition-colors">Engine</Link>
+            <span className="text-[#333333]">/</span>
+            <Link href="/demo" className="hover:text-white transition-colors">Demo</Link>
+            <div className="ml-auto flex items-center gap-4">
+              <Link href="https://github.com" target="_blank" className="hover:text-white cursor-pointer transition-colors">GITHUB</Link>
+            </div>
+          </div>
         </div>
 
       </main>
