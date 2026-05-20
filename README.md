@@ -1,6 +1,5 @@
 <div align="center">
-  <h1>Quantale Lab</h1>
-  <em>A formal algebraic engine modeling chess skill progression.</em>
+  <h1>Quantale Lab</h1> - <em>A formal algebraic engine modeling chess skill progression.</em>
   <br><br>
 
   [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](client/)
@@ -44,7 +43,6 @@ The engine runs on Python/FastAPI. We recommend using `uv` for lightning-fast de
 cd server
 uv run python app/main.py
 ```
-> *For detailed engine documentation, mathematical proofs, and API schemas, please read the **[Server Documentation](./server/README.md)**.*
 
 ### 2. Start the Interactive Interface
 The frontend is built on Next.js (App Router) and TailwindCSS.
@@ -54,8 +52,6 @@ cd client
 npm install
 npm run dev
 ```
-> *For UI component architecture, routing structures, and deployment instructions, please read the **[Client Documentation](./client/README.md)**.*
-
 ---
 
 ## Project Architecture
