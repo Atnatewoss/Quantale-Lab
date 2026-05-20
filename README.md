@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="client/public/ui.png" alt="Quantale Chess Engine" width="100%" style="border-radius: 8px;">
   <br><br>
   <h1>Quantale Lab</h1>
   <em>A formal algebraic engine modeling chess skill progression.</em>
