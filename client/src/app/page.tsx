@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Copy } from 'lucide-react';
 
@@ -37,6 +38,14 @@ const FEATURES = [
 ];
 
 export default function LandingPage() {
+  const [activeTab, setActiveTab] = useState<'api' | 'python' | 'react'>('api');
+
+  const CODE_SNIPPETS = {
+    api: `POST /verify\n{\n  "axiom": "adjunction",\n  "params": {\n    "a": "advanced",\n    "b": "intermediate"\n  }\n}`,
+    python: `from quantale import Engine\n\nengine = Engine()\nresult = engine.verify_adjunction(\n    a="advanced",\n    b="intermediate"\n)\nprint(result.is_valid)`,
+    react: `import { verifyAxiom } from '@/lib/api';\n\nconst { isValid } = await verifyAxiom({\n  axiom: 'adjunction',\n  a: 'advanced',\n  b: 'intermediate'\n});`
+  };
+
   return (
     <div className="h-screen bg-[#000000] text-white font-sans selection:bg-white/30 flex flex-col lg:flex-row overflow-hidden">
       
@@ -116,21 +125,30 @@ export default function LandingPage() {
           
           {/* README Section */}
           <div className="p-8 md:p-12 border-b border-[#222222]">
-            <h2 className="text-[11px] tracking-widest text-white mb-6 uppercase">Readme</h2>
-            <p className="text-[#999999] text-base leading-relaxed max-w-xl">
-              Algebra that lives inside your system. Composable, order-based, and built to prove — powering resource-constrained interaction networks and theorem verification systems.
+            <h2 className="text-[11px] tracking-widest text-white mb-5 uppercase">Readme</h2>
+            <p className="text-[#999999] text-[13px] leading-relaxed max-w-xl font-medium">
+              Quantale-Lab is an interactive mathematical engine. It maps advanced algebraic structures—Posets, Lattices, and Quantales—onto chess skill hierarchies, powered by a formal FastAPI backend evaluating tensor operations and Galois connections in real-time.
             </p>
 
             {/* Code Block Tab */}
-            <div className="mt-10 border border-[#222222] bg-[#050505]/80 backdrop-blur-sm">
-              <div className="flex items-center border-b border-[#222222] text-[11px] text-[#666666]">
-                <div className="px-4 py-3 border-r border-[#222222] text-white bg-[#111111]/80">API Request</div>
-                <div className="px-4 py-3 border-r border-[#222222] hover:text-white cursor-pointer">Python</div>
-                <div className="px-4 py-3 hover:text-white cursor-pointer">React</div>
+            <div className="mt-8 border border-[#222222] bg-[#050505]/80 backdrop-blur-sm rounded-sm overflow-hidden">
+              <div className="flex items-center border-b border-[#222222] text-[11px] text-[#666666] select-none">
+                <div 
+                  onClick={() => setActiveTab('api')}
+                  className={`px-4 py-3 border-r border-[#222222] cursor-pointer transition-colors ${activeTab === 'api' ? 'text-white bg-[#111111]/80' : 'hover:text-white'}`}
+                >API Request</div>
+                <div 
+                  onClick={() => setActiveTab('python')}
+                  className={`px-4 py-3 border-r border-[#222222] cursor-pointer transition-colors ${activeTab === 'python' ? 'text-white bg-[#111111]/80' : 'hover:text-white'}`}
+                >Python</div>
+                <div 
+                  onClick={() => setActiveTab('react')}
+                  className={`px-4 py-3 cursor-pointer transition-colors ${activeTab === 'react' ? 'text-white bg-[#111111]/80' : 'hover:text-white'}`}
+                >React</div>
               </div>
-              <div className="p-4 flex items-center justify-between font-mono text-[13px] text-[#cccccc]">
-                <span>GET /query/residual?a=advanced&c=intermediate</span>
-                <Copy className="w-4 h-4 text-[#666666] hover:text-white cursor-pointer" />
+              <div className="p-4 flex items-start justify-between font-mono text-[12px] text-[#cccccc] min-h-[140px]">
+                <pre className="whitespace-pre-wrap leading-relaxed">{CODE_SNIPPETS[activeTab]}</pre>
+                <Copy className="w-4 h-4 text-[#444444] hover:text-white cursor-pointer mt-1 shrink-0" />
               </div>
             </div>
           </div>
