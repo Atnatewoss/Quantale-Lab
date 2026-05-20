@@ -40,18 +40,68 @@ export default function LandingPage() {
   return (
     <div className="h-screen bg-[#000000] text-white font-sans selection:bg-white/30 flex flex-col lg:flex-row overflow-hidden">
       
-      {/* Left Column - Navigation + Content */}
+      {/* Left Column - Top Logo + Hero with Grainy Gradient */}
       <div className="w-full lg:w-1/2 flex flex-col border-b lg:border-b-0 lg:border-r border-[#222222] h-full bg-black relative z-20">
         
-        {/* Navigation - Constrained to Left Column */}
-        <nav className="border-b border-[#222222] flex items-center justify-between px-6 h-16 shrink-0 bg-black z-50">
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 bg-white text-black flex items-center justify-center font-bold text-xs">
-              Q
-            </div>
-            <span className="font-bold tracking-widest text-xs">QUANTALE.</span>
+        {/* Grainy Gradient Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#1c1c1c_0%,_#000000_100%)] pointer-events-none" />
+        <div 
+          className="absolute inset-0 opacity-[0.25] mix-blend-overlay pointer-events-none" 
+          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} 
+        />
+
+        
+        {/* Top Left Logo Area */}
+        <div className="absolute top-8 left-8 flex items-center gap-2 z-50">
+          <div className="w-5 h-5 bg-white text-black flex items-center justify-center font-bold text-xs">
+            Q
           </div>
+          <span className="font-bold tracking-widest text-xs">QUANTALE-LAB.</span>
+        </div>
+
+        {/* Hero Content Container */}
+        <div className="flex-1 flex flex-col justify-between overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-black [&::-webkit-scrollbar-thumb]:bg-[#050505] hover:[&::-webkit-scrollbar-thumb]:bg-[#111]">
           
+          <div className="p-8 md:p-16 lg:p-20 mt-auto mb-auto">
+            <div className="inline-flex items-center gap-2 text-[11px] text-[#888888] mb-8 border border-[#333333] rounded-full px-3 py-1 hover:text-white hover:border-[#555555] transition-all cursor-default bg-black/30 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              Introducing | The Algebraic Skill Protocol <ArrowRight className="w-3 h-3" />
+            </div>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.15] mb-10 text-[#f5f5f5]">
+              Interactive algebra <br className="hidden lg:block" /> systems for concrete <br className="hidden lg:block" /> execution.
+            </h1>
+
+            <div className="flex items-center gap-4">
+              <Link href="/demo" className="bg-white text-black px-6 py-3 text-sm font-medium hover:bg-[#dddddd] transition-colors flex items-center gap-2">
+                Enter Arena <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/docs/foundations/introduction" className="border border-[#333333] text-white px-6 py-3 text-sm font-medium hover:bg-[#111111] transition-colors bg-black/40 backdrop-blur-sm">
+                Read the Math
+              </Link>
+            </div>
+          </div>
+
+          {/* Left Footer Links */}
+          <div className="p-8 md:px-16 lg:px-20 pb-12 flex items-center gap-6 text-[11px] font-mono text-[#666666] uppercase">
+            <Link href="/docs/foundations/introduction" className="hover:text-white transition-colors">Mathematics</Link>
+            <span className="text-[#333333]">/</span>
+            <Link href="/docs/engine/query-engine" className="hover:text-white transition-colors">Engine</Link>
+            <span className="text-[#333333]">/</span>
+            <Link href="/demo" className="hover:text-white transition-colors">Demo</Link>
+            <div className="ml-auto flex items-center gap-4">
+              <Link href="https://github.com" target="_blank" className="hover:text-white cursor-pointer transition-colors">GITHUB</Link>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Right Column - Navigation + Full Content */}
+      <div className="w-full lg:w-1/2 relative h-full flex flex-col bg-black">
+        
+        {/* Navigation - Constrained to Right Column */}
+        <nav className="border-b border-[#222222] flex items-center justify-end px-6 h-16 shrink-0 bg-transparent z-50 relative">
           <div className="hidden md:flex items-center text-[11px] font-medium tracking-widest text-[#888888]">
             <Link href="/docs/foundations/introduction" className="hover:text-white px-5 h-16 flex items-center border-b-2 border-white text-white">
               README
@@ -65,8 +115,8 @@ export default function LandingPage() {
           </div>
         </nav>
 
-        {/* Scrollable Left Content */}
-        <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#1a1a1a] hover:[&::-webkit-scrollbar-thumb]:bg-[#333]">
+        {/* Scrollable Right Content */}
+        <div className="relative z-10 flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-[#000000] [&::-webkit-scrollbar-thumb]:bg-[#080808] hover:[&::-webkit-scrollbar-thumb]:bg-[#111111]">
           
           {/* README Section */}
           <div className="p-8 md:p-12 border-b border-[#222222]">
@@ -76,9 +126,9 @@ export default function LandingPage() {
             </p>
 
             {/* Code Block Tab */}
-            <div className="mt-10 border border-[#222222] bg-[#050505]">
+            <div className="mt-10 border border-[#222222] bg-[#050505]/80 backdrop-blur-sm">
               <div className="flex items-center border-b border-[#222222] text-[11px] text-[#666666]">
-                <div className="px-4 py-3 border-r border-[#222222] text-white bg-[#111111]">API Request</div>
+                <div className="px-4 py-3 border-r border-[#222222] text-white bg-[#111111]/80">API Request</div>
                 <div className="px-4 py-3 border-r border-[#222222] hover:text-white cursor-pointer">Python</div>
                 <div className="px-4 py-3 hover:text-white cursor-pointer">React</div>
               </div>
@@ -90,7 +140,7 @@ export default function LandingPage() {
           </div>
 
           {/* Trusted By (Placeholder style) */}
-          <div className="py-6 px-12 border-b border-[#222222] flex items-center justify-between text-[#444444] text-xs font-bold tracking-widest uppercase">
+          <div className="py-6 px-12 border-b border-[#222222] flex items-center justify-between text-[#444444] text-xs font-bold tracking-widest uppercase bg-black/10 backdrop-blur-sm">
             <span>Core Mathematical Structures</span>
           </div>
 
@@ -110,49 +160,7 @@ export default function LandingPage() {
             
           </div>
         </div>
-      </div>
 
-      {/* Right Column - Hero (Full Screen Height) */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-between p-8 md:p-16 lg:p-20 relative h-full overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#1a1a1a] hover:[&::-webkit-scrollbar-thumb]:bg-[#333]">
-        
-        {/* Grainy Gradient Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#1c1c1c_0%,_#000000_100%)] pointer-events-none" />
-        <div 
-          className="absolute inset-0 opacity-[0.25] mix-blend-overlay pointer-events-none" 
-          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} 
-        />
-
-        <div className="relative z-10 mt-12 lg:mt-24">
-          <div className="inline-flex items-center gap-2 text-[11px] text-[#888888] mb-8 border border-[#333333] rounded-full px-3 py-1 hover:text-white hover:border-[#555555] transition-all cursor-default bg-black/30 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-            Introducing | The Algebraic Skill Protocol <ArrowRight className="w-3 h-3" />
-          </div>
-
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.15] mb-10 text-[#f5f5f5]">
-            Interactive algebra <br className="hidden lg:block" /> systems for concrete <br className="hidden lg:block" /> execution.
-          </h1>
-
-          <div className="flex items-center gap-4">
-            <Link href="/demo" className="bg-white text-black px-6 py-3 text-sm font-medium hover:bg-[#dddddd] transition-colors flex items-center gap-2">
-              Enter Arena <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/docs/foundations/introduction" className="border border-[#333333] text-white px-6 py-3 text-sm font-medium hover:bg-[#111111] transition-colors bg-black/40 backdrop-blur-sm">
-              Read the Math
-            </Link>
-          </div>
-        </div>
-
-        {/* Right Footer Links */}
-        <div className="relative z-10 flex items-center gap-6 text-[11px] font-mono text-[#666666] uppercase mt-32 lg:mt-0">
-          <Link href="/docs/foundations/introduction" className="hover:text-white transition-colors">Mathematics</Link>
-          <span className="text-[#333333]">/</span>
-          <Link href="/docs/engine/query-engine" className="hover:text-white transition-colors">Engine</Link>
-          <span className="text-[#333333]">/</span>
-          <Link href="/demo" className="hover:text-white transition-colors">Demo</Link>
-          <div className="ml-auto flex items-center gap-4">
-            <Link href="https://github.com" target="_blank" className="hover:text-white cursor-pointer transition-colors">GITHUB</Link>
-          </div>
-        </div>
       </div>
 
     </div>
