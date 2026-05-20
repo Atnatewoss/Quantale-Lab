@@ -1,0 +1,9 @@
+{
+  "title": "Quantale Chess Arena Docs",
+  "description": "Reference sections for the Quantale Chess Arena.",
+  "pages": [
+    "foundations",
+    "engine",
+    "tools"
+  ]
+}
