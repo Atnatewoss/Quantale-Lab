@@ -1,5 +1,4 @@
 <div align="center">
-  <br><br>
   <h1>Quantale Lab</h1>
   <em>A formal algebraic engine modeling chess skill progression.</em>
   <br><br>
@@ -48,7 +47,7 @@ uv run python app/main.py
 > *For detailed engine documentation, mathematical proofs, and API schemas, please read the **[Server Documentation](./server/README.md)**.*
 
 ### 2. Start the Interactive Interface
-The frontend is built on Next.js 15 (App Router) and TailwindCSS.
+The frontend is built on Next.js (App Router) and TailwindCSS.
 
 ```bash
 cd client
