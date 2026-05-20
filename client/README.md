@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quantale Lab: Web Client
 
-## Getting Started
+This directory contains the Next.js frontend application for the **Quantale Lab** algebraic engine. It provides a visual, highly interactive "Combat Arena" interface to evaluate abstract algebra properties (such as Distributivity, Adjunction, and Monoidal Composition) in the domain of Chess skill progression.
 
-First, run the development server:
+> For the full project overview, mathematical theory, and backend details, please refer to the [Root README](../README.md) and the [Server README](../server/README.md).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** TailwindCSS
+* **Animation:** Framer Motion
+* **Icons:** Lucide React
+
+## Project Structure
+
+This project follows modern Next.js `src/` directory conventions:
+
+```text
+client/
+├── public/                 # Static assets
+├── src/
+│   ├── app/                # Next.js App Router (layout.tsx, page.tsx, globals.css)
+│   ├── components/         # React UI Components (CombatArena, LatticeGraph, TerminalPanel, etc.)
+│   ├── lib/                # Shared utilities and the unified API Client (api.ts)
+│   └── types/              # Global TypeScript definitions (types.ts)
+├── .env.local              # Local environment variables
+└── tsconfig.json           # TypeScript configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup & Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Configure Environment
+By default, the client looks for the FastAPI backend at `http://127.0.0.1:8000`. You can configure this by modifying the `.env.local` file at the root of the `client` directory:
+```env
+NEXT_PUBLIC_API_URL='http://127.0.0.1:8000'
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-## Learn More
+### 3. Start the Development Server
+```bash
+npm run dev
+```
+Open `http://localhost:3000` in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **Dynamic Rosters:** Automatically fetches elements from the Python backend to build selectable interactive cards.
+* **Algebraic Terminal Console:** A custom-built, fully animated terminal that visualizes the raw computational logic and mathematical proofs returned by the backend.
+* **Real-time Lattice Graphs:** Visualizes the $Q$ poset structures and highlights operational results.
