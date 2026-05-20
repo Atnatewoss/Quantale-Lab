@@ -38,7 +38,7 @@ const FEATURES = [
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#000000] text-white font-sans selection:bg-white/30 flex flex-col">
+    <div className="h-screen bg-[#000000] text-white font-sans selection:bg-white/30 flex flex-col overflow-hidden">
       {/* Navigation */}
       <nav className="border-b border-[#222222] flex items-center justify-between px-6 h-16 shrink-0 sticky top-0 bg-black z-50">
         <div className="flex items-center gap-2">
@@ -66,10 +66,10 @@ export default function LandingPage() {
       </nav>
 
       {/* Main Grid */}
-      <main className="flex-1 grid grid-cols-1 lg:grid-cols-2">
+      <main className="flex-1 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
         
         {/* Left Column - Content (Swapped from right) */}
-        <div className="flex flex-col border-b lg:border-b-0 lg:border-r border-[#222222]">
+        <div className="flex flex-col border-b lg:border-b-0 lg:border-r border-[#222222] overflow-y-auto">
           
           {/* README Section */}
           <div className="p-8 md:p-12 border-b border-[#222222]">
@@ -116,7 +116,7 @@ export default function LandingPage() {
         </div>
 
         {/* Right Column - Hero (Swapped from left) */}
-        <div className="flex flex-col justify-between p-8 md:p-16 lg:p-20 relative">
+        <div className="flex flex-col justify-between p-8 md:p-16 lg:p-20 relative overflow-y-auto">
           
           {/* Subtle background texture for right side */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
