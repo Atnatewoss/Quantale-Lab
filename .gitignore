@@ -1,1 +1,10 @@
+# Client
 node_modules
+.next
+
+# Server
+__pycache__
+.venv
+
+# Agents
+.agents
