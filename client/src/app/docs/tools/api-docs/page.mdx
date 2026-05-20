@@ -1,0 +1,29 @@
+---
+title: "API Docs"
+description: "Reference for the backend FastAPI endpoints."
+icon: "Code"
+order: 8
+---
+
+# API Docs
+
+The backend is built with FastAPI and exposes the following clean endpoints to interface with the mathematical engine:
+
+### `GET /compare`
+Compares two skill levels.
+* **Parameters**: `a` (string), `b` (string)
+* **Response**: `{"le": true/false}`
+
+### `GET /compose`
+Composes two skill levels.
+* **Parameters**: `a` (string), `b` (string)
+* **Response**: `{"result": string, "steps": [...]}`
+
+### `GET /query/residual`
+Queries the right residual.
+* **Parameters**: `a` (string), `c` (string)
+* **Response**: `{"residual": string, "proof": string}`
+
+### `GET /verify`
+Runs the exhaustive axiom verification test suite.
+* **Response**: `{"valid": true, "axioms": { "monoid": true, "lattice": true, "distributivity": true, "adjunction": true }}`

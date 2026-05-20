@@ -1,0 +1,9 @@
+{
+  "title": "Interactive Tools & API",
+  "defaultOpen": true,
+  "pages": [
+    "playground",
+    "visual-arena",
+    "api-docs"
+  ]
+}
