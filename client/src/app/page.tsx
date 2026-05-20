@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Copy } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const FEATURES = [
   {
@@ -38,13 +37,6 @@ const FEATURES = [
 ];
 
 export default function LandingPage() {
-  const [activeTab, setActiveTab] = useState<'api' | 'python' | 'react'>('api');
-
-  const CODE_SNIPPETS = {
-    api: `POST /verify\n{\n  "axiom": "adjunction",\n  "params": {\n    "a": "advanced",\n    "b": "intermediate"\n  }\n}`,
-    python: `from quantale import Engine\n\nengine = Engine()\nresult = engine.verify_adjunction(\n    a="advanced",\n    b="intermediate"\n)\nprint(result.is_valid)`,
-    react: `import { verifyAxiom } from '@/lib/api';\n\nconst { isValid } = await verifyAxiom({\n  axiom: 'adjunction',\n  a: 'advanced',\n  b: 'intermediate'\n});`
-  };
 
   return (
     <div className="h-screen bg-[#000000] text-white font-sans selection:bg-white/30 flex flex-col lg:flex-row overflow-hidden">
@@ -127,30 +119,8 @@ export default function LandingPage() {
           <div className="p-8 md:p-12 border-b border-[#222222]">
             <h2 className="text-[11px] tracking-widest text-white mb-5 uppercase">Readme</h2>
             <p className="text-[#999999] text-[13px] leading-relaxed max-w-xl font-medium">
-              Algebra that evaluates chess. Composable, mathematically rigorous, and built to model skill levels — powering exact capability bounds, tensor interactions, and residual gap computations.
+              Quantale Chess Engine is an interactive mathematical framework designed to map abstract algebraic structures—Posets, Lattices, and Residuated Quantales—directly onto chess skill hierarchies. By evaluating exact capability bounds, interaction networks, and residual computations through formal tensor mathematics, it provides a rigorous foundation for capability-constrained systems.
             </p>
-
-            {/* Code Block Tab */}
-            <div className="mt-8 border border-[#222222] bg-[#050505]/80 backdrop-blur-sm rounded-sm overflow-hidden">
-              <div className="flex items-center border-b border-[#222222] text-[11px] text-[#666666] select-none">
-                <div 
-                  onClick={() => setActiveTab('api')}
-                  className={`px-4 py-3 border-r border-[#222222] cursor-pointer transition-colors ${activeTab === 'api' ? 'text-white bg-[#111111]/80' : 'hover:text-white'}`}
-                >API Request</div>
-                <div 
-                  onClick={() => setActiveTab('python')}
-                  className={`px-4 py-3 border-r border-[#222222] cursor-pointer transition-colors ${activeTab === 'python' ? 'text-white bg-[#111111]/80' : 'hover:text-white'}`}
-                >Python</div>
-                <div 
-                  onClick={() => setActiveTab('react')}
-                  className={`px-4 py-3 cursor-pointer transition-colors ${activeTab === 'react' ? 'text-white bg-[#111111]/80' : 'hover:text-white'}`}
-                >React</div>
-              </div>
-              <div className="p-4 flex items-start justify-between font-mono text-[12px] text-[#cccccc] min-h-[140px]">
-                <pre className="whitespace-pre-wrap leading-relaxed">{CODE_SNIPPETS[activeTab]}</pre>
-                <Copy className="w-4 h-4 text-[#444444] hover:text-white cursor-pointer mt-1 shrink-0" />
-              </div>
-            </div>
           </div>
 
           {/* Trusted By (Placeholder style) */}
