@@ -50,7 +50,7 @@ export default function LandingPage() {
     <div className="h-screen bg-[#000000] text-white font-sans selection:bg-white/30 flex flex-col lg:flex-row overflow-hidden">
       
       {/* Left Column - Top Logo + Hero with Grainy Gradient */}
-      <div className="w-full lg:w-1/2 flex flex-col border-b lg:border-b-0 lg:border-r border-[#222222] h-full bg-black relative z-20">
+      <div className="w-full lg:w-1/2 flex flex-col border-b lg:border-b-0 lg:border-r border-[#222222] h-full bg-black relative z-20 overflow-hidden">
         
         {/* Smooth Spotlight Gradient Background */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1a1a1a] blur-[150px] rounded-full pointer-events-none" />
@@ -70,11 +70,11 @@ export default function LandingPage() {
           <div className="p-8 md:p-16 lg:p-20 mt-auto mb-auto">
             <div className="inline-flex items-center gap-2 text-[11px] text-[#888888] mb-8 border border-[#333333] rounded-full px-3 py-1 hover:text-white hover:border-[#555555] transition-all cursor-default bg-black/30 backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              Introducing | The Algebraic Skill Protocol <ArrowRight className="w-3 h-3" />
+              Introducing | Quantale Chess Engine <ArrowRight className="w-3 h-3" />
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.15] mb-10 text-[#f5f5f5]">
-              Interactive algebra <br className="hidden lg:block" /> systems for concrete <br className="hidden lg:block" /> execution.
+              A quantale-based <br className="hidden lg:block" /> implementation <br className="hidden lg:block" /> of chess.
             </h1>
 
             <div className="flex items-center gap-4">
@@ -127,7 +127,7 @@ export default function LandingPage() {
           <div className="p-8 md:p-12 border-b border-[#222222]">
             <h2 className="text-[11px] tracking-widest text-white mb-5 uppercase">Readme</h2>
             <p className="text-[#999999] text-[13px] leading-relaxed max-w-xl font-medium">
-              Quantale-Lab is an interactive mathematical engine. It maps advanced algebraic structures—Posets, Lattices, and Quantales—onto chess skill hierarchies, powered by a formal FastAPI backend evaluating tensor operations and Galois connections in real-time.
+              Algebra that evaluates chess. Composable, mathematically rigorous, and built to model skill levels — powering exact capability bounds, tensor interactions, and residual gap computations.
             </p>
 
             {/* Code Block Tab */}
