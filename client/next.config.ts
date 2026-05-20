@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
+import { withDocs } from "@farming-labs/next/config";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = withDocs({
+  // any extra next config options
+});
 
 export default nextConfig;
