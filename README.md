@@ -48,6 +48,17 @@ make install
 make dev
 ```
 
+**For Windows Users:**
+Since Windows does not natively support `make`, a PowerShell script is provided:
+
+```powershell
+# 1. Install dependencies
+.\start.ps1 -install
+
+# 2. Run both client and server (opens in new windows)
+.\start.ps1
+```
+
 ### Manual Startup
 
 If you prefer to run them in separate terminals:
