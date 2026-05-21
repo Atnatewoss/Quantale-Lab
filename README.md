@@ -34,22 +34,33 @@ The backend engine programmatically validates the following abstract algebraic p
 
 ## Local Development
 
-To run the full application locally, you will need to start both the backend engine and the frontend interface concurrently.
+To run the full application locally, you can use the provided `Makefile` for a streamlined quick-start.
 
-### 1. Start the Mathematical Engine
-The engine runs on Python/FastAPI. We recommend using `uv` for lightning-fast dependency management.
+### Quick Start (Recommended)
 
+Make sure you have `uv` (Python) and `npm` (Node.js) installed.
+
+```bash
+# 1. Install all dependencies for both client and server
+make install
+
+# 2. Run both client and server concurrently
+make dev
+```
+
+### Manual Startup
+
+If you prefer to run them in separate terminals:
+
+**Terminal 1 (Backend):**
 ```bash
 cd server
 uv run python app/main.py
 ```
 
-### 2. Start the Interactive Interface
-The frontend is built on Next.js (App Router) and TailwindCSS.
-
+**Terminal 2 (Frontend):**
 ```bash
 cd client
-npm install
 npm run dev
 ```
 ---
